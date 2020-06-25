@@ -1,0 +1,41 @@
+Faça um programa que pegue as matrizes
+
+    1  3  7  2
+M=  11 2  12 5
+    2  5  3  1
+
+    4  1  2  1
+N=  9  5  3  5
+    1  7  0  2
+
+E imprima na tela a matriz O= 3M-5N
+
+#include <stdio.h>
+
+int main()
+{
+  int i;
+  int j;
+  int M[3][4]={1,3,7,2,11,2,12,5,2,5,3,1};
+  int N[3][4]={4,1,2,1,9,5,3,5,1,7,0,2};
+  int O[3][4];
+
+  printf("Matriz O = 3M-5N: \n");
+
+  for (i=0;i<=2;i++)
+  {
+    for (j=0;j<=3;j++)
+    {
+      O[i][j]=3*M[i][j]-5*N[i][j];
+    }
+  }
+
+  for (i=0;i<=2;i++)
+  {
+    printf("\n");
+    for (j=0;j<=3;j++)
+    {
+      printf("%d ",O[i][j]);
+    }
+  }
+}
