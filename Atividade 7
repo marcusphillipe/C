@@ -1,0 +1,52 @@
+//Crie um programa fonte que leia nome, endereço, idade e telefone de 10 clientes e guarde estes dados em um arquivo denominado clientes.txt do tipo “w”,
+//sendo que o nome, endereço, idade e telefone devem ficar em uma linha para cada cliente. 
+//Coloque o programa fonte como resposta.
+
+#include<stdio.h>
+
+struct clientes
+{
+  char nome[60];
+  char endereco[11];
+  int idade;
+  int telefone;
+};
+int
+main ()
+{
+  FILE *pont_arq;
+  struct clientes lista_clientes[10];
+  int i;
+
+  pont_arq = fopen ("clientes.txt", "w");
+  if (pont_arq == NULL)
+    {
+      printf ("Erro na abertura do arquivo!");
+      return 1;
+    }
+  for (i = 0; i <= 9; i++)
+    {
+      printf ("Dê o nome do cliente: ");
+      scanf ("%s", lista_clientes[i].nome);
+      printf ("Dê o endereC'o do cliente: ");
+      scanf ("%s", lista_clientes[i].endereco);
+      printf ("Dê a idade do cliente: ");
+      scanf ("%d", &lista_clientes[i].idade);
+      printf ("Dê o telefone do cliente: ");
+      scanf ("%d", &lista_clientes[i].telefone);
+    }
+
+  fprintf (pont_arq, "Lista dos clientes:\n\n");
+  for (i = 0; i <= 9; i++)
+    {
+      fprintf (pont_arq, "%s ", lista_clientes[i].nome);
+      fprintf (pont_arq, "%s ", lista_clientes[i].endereco);
+      fprintf (pont_arq, "%d ", lista_clientes[i].idade);
+      fprintf (pont_arq, "%d", lista_clientes[i].telefone);
+      fprintf (pont_arq, "\n");
+    }
+
+  fclose (pont_arq);
+  printf ("Dados gravados com sucesso!");
+}
+
